@@ -52,6 +52,7 @@ npm run format:check
 npm run check
 npm run build
 npm run check:links
+npm run check:deployment
 npm run quality
 ```
 
@@ -59,6 +60,7 @@ npm run quality
 - `check` führt die Astro- und TypeScript-Prüfung aus.
 - `build` erzeugt den Produktions-Build.
 - `check:links` kontrolliert interne Links im erzeugten Build.
+- `check:deployment` prüft 404-Seite, robots.txt, Canonical URL und Sitemap.
 - `quality` führt alle Prüfungen in der vorgesehenen Reihenfolge aus.
 
 Der Workflow `.github/workflows/quality.yml` führt die reproduzierbare
@@ -87,3 +89,41 @@ ausdrücklicher Freigabe veröffentlicht werden.
 
 Direkte Pushes auf `main`, automatische Pull Requests und automatische
 Veröffentlichungen sind nicht Teil dieses Projektschritts.
+
+## Hosting und Veröffentlichung
+
+Die Website ist für eine spätere Veröffentlichung über GitHub Pages vorbereitet.
+Der Workflow `.github/workflows/deploy-pages.yml` baut den statischen Inhalt aus
+`main` und veröffentlicht ausschließlich das Verzeichnis `dist/`. Er wird
+ausschließlich manuell über `workflow_dispatch` gestartet; ein Merge oder Push
+auf `main` löst keine Veröffentlichung aus.
+
+Eine Veröffentlichung ist standardmäßig technisch gesperrt. Beide Jobs werden
+nur ausgeführt, wenn im Repository die Variable `SANELIO_PAGES_ENABLED` exakt auf
+`true` gesetzt wurde. Die Variable darf erst nach gesonderter Freigabe gesetzt
+werden.
+
+Vor der ersten Veröffentlichung müssen zusätzlich:
+
+1. die fehlenden rechtlichen und persönlichen Angaben freigegeben sein,
+2. `kontakt@sanelio.de` als erreichbare Adresse verifiziert sein,
+3. GitHub Pages mit der Quelle „GitHub Actions“ aktiviert sein,
+4. `sanelio.de` in den Pages-Einstellungen als Custom Domain hinterlegt und
+   verifiziert sein,
+5. die erforderlichen DNS-Einträge kontrolliert auf GitHub Pages umgestellt
+   worden sein.
+
+Bis diese Voraussetzungen erfüllt sind, bleibt die bestehende DNS- und
+Hostingkonfiguration unverändert. Es gibt bewusst keinen öffentlichen
+Preview-Deploymentdienst. Pull Requests werden durch den Quality-Workflow
+geprüft; eine lokale Produktionsvorschau erfolgt mit `npm run preview`.
+
+### Rollback
+
+Ein veröffentlichter Stand wird nicht durch direkte Änderungen an `main`
+zurückgesetzt. Für einen inhaltlichen oder technischen Rollback wird auf einem
+neuen Branch ein Revert des betroffenen Commits vorbereitet, vollständig geprüft
+und über einen Pull Request nach `main` übernommen. Der Pages-Workflow
+veröffentlicht anschließend den wiederhergestellten Stand. Eine Deaktivierung von
+GitHub Pages oder Änderung der Domain bleibt eine separate, ausdrücklich
+freizugebende administrative Maßnahme.
