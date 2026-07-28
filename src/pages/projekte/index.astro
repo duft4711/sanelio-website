@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import Notice from "../../components/Notice.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+
+const projects = (await getCollection("projects")).filter(
+  (project) => !project.data.draft,
+);
+---
+
+<BaseLayout
+  title="Projekte | Sanelio"
+  description="Praktische KI-, Automatisierungs- und Technologieprojekte."
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Praxis"
+      title="Projekte"
+      description="Hier entsteht eine Sammlung nachvollziehbarer Praxisberichte. Veröffentlicht werden nur freigegebene Inhalte und überprüfbare Aussagen."
+    />
+
+    {
+      projects.length > 0 ? (
+        <div class="card-grid">
+          {projects.map((project) => (
+            <Card
+              title={project.data.title}
+              description={project.data.description}
+              href={`/projekte/${project.id}/`}
+              label="Fallstudie lesen"
+            />
+          ))}
+        </div>
+      ) : (
+        <Notice title="Struktur vorbereitet">
+          Die technische Struktur für Fallstudien ist vorhanden. Konkrete
+          Projekte werden erst nach inhaltlicher Prüfung und Freigabe
+          veröffentlicht.
+        </Notice>
+      )
+    }
+  </div>
+</BaseLayout>

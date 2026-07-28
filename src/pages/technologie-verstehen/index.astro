@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+---
+
+<BaseLayout
+  title="Technologie verstehen | Sanelio"
+  description="Grundlagen, KI, Automatisierung und praktische Einordnungen verständlich erklärt."
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Themen"
+      title="Technologie verstehen"
+      description="Ein Einstieg für Menschen, die technologische Entwicklungen einordnen und praktisch nutzen möchten – ohne dass Spezialwissen vorausgesetzt wird."
+    />
+
+    <div class="card-grid">
+      <Card
+        title="Grundlagen"
+        description="Begriffe, Modelle und Zusammenhänge als belastbare Basis."
+        href="/technologie-verstehen/grundlagen/"
+      />
+      <Card
+        title="KI und Automatisierung"
+        description="Möglichkeiten, Grenzen und verantwortungsvolle Nutzung."
+        href="/technologie-verstehen/ki-und-automatisierung/"
+      />
+      <Card
+        title="Praktische Einordnungen"
+        description="Fragen, mit denen sich Nutzen, Aufwand und Risiko bewerten lassen."
+        href="/technologie-verstehen/praktische-einordnungen/"
+      />
+    </div>
+  </div>
+</BaseLayout>

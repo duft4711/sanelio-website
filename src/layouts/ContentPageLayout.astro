@@ -1,0 +1,46 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Notice from "../components/Notice.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  reviewRequired?: boolean;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout
+  title={`${frontmatter.title} | Sanelio`}
+  description={frontmatter.description}
+  noindex={frontmatter.reviewRequired}
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow={frontmatter.eyebrow}
+      title={frontmatter.title}
+      description={frontmatter.description}
+    />
+
+    {
+      frontmatter.reviewRequired && (
+        <Notice title="Inhaltliche Freigabe erforderlich">
+          Diese Seite ist ein zurückhaltender Entwurf. Aussagen zu Prime,
+          Sanelio oder beteiligten Personen werden vor einer Veröffentlichung
+          fachlich und persönlich geprüft.
+        </Notice>
+      )
+    }
+
+    <article class="prose content-width">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>

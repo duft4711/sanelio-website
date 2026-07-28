@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import Notice from "../../components/Notice.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+---
+
+<BaseLayout
+  title="Prime | Sanelio"
+  description="Prime ist ein zentrales Projekt innerhalb von Sanelio."
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Projekt"
+      title="Prime"
+      description="Prime ist ein zentrales Projekt innerhalb von Sanelio. Die öffentliche Dokumentation soll seine Entstehung, Arbeitsweise und Weiterentwicklung nachvollziehbar machen."
+    />
+
+    <Notice title="Öffentlicher Entwurf">
+      Die Darstellung enthält bewusst keine internen Systeme, Verwaltungsdaten
+      oder vertraulichen Informationen. Projektspezifische Aussagen benötigen
+      vor der Veröffentlichung eine inhaltliche Freigabe.
+    </Notice>
+
+    <div class="card-grid">
+      <Card
+        title="Entstehung"
+        description="Eine vorbereitete, noch freizugebende Darstellung der Ausgangslage und Entwicklung."
+        href="/prime/entstehung/"
+      />
+      <Card
+        title="Prinzipien und Arbeitsweise"
+        description="Wie nachvollziehbare und verantwortete Zusammenarbeit beschrieben werden kann."
+        href="/prime/prinzipien-und-arbeitsweise/"
+      />
+      <Card
+        title="Weiterentwicklung"
+        description="Ein Rahmen, um praktische Erkenntnisse und begründete Änderungen zu dokumentieren."
+        href="/prime/weiterentwicklung/"
+      />
+    </div>
+  </div>
+</BaseLayout>

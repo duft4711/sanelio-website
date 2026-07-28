@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Notice from "../components/Notice.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+---
+
+<BaseLayout
+  title="Datenschutz – Entwurf | Sanelio"
+  description="Nicht veröffentlichungsreifer Platzhalter für Datenschutzinformationen."
+  noindex={true}
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Rechtlicher Entwurf"
+      title="Datenschutz"
+      description="Diese Seite dokumentiert nur den aktuellen technischen Plan und ersetzt keine geprüfte Datenschutzerklärung."
+    />
+
+    <Notice title="Nicht veröffentlichungsreif" tone="warning">
+      Verantwortlicher, Hosting, Server-Protokolle und endgültige
+      Kontaktmöglichkeiten stehen noch nicht fest beziehungsweise sind noch
+      nicht rechtlich geprüft.
+    </Notice>
+
+    <article class="prose content-width">
+      <h2>Aktuell vorgesehener technischer Umfang</h2>
+      <p>
+        Die Website wird statisch entwickelt. Analytics, Tracking, Cookies,
+        externe Schriftarten, eingebettete Videos, Karten, Social-Media-Widgets
+        und Kontaktformulare sind nicht vorgesehen.
+      </p>
+
+      <h2>Vor Veröffentlichung zu klären</h2>
+      <ul>
+        <li>verantwortliche Stelle und Kontaktangaben</li>
+        <li>Hosting-Anbieter und technisch anfallende Protokolldaten</li>
+        <li>Aufbewahrung, Rechtsgrundlagen und Betroffenenrechte</li>
+        <li>rechtliche Prüfung des vollständigen Textes</li>
+      </ul>
+    </article>
+  </div>
+</BaseLayout>
