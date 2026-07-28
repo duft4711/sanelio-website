@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+---
+
+<BaseLayout
+  title="Seite nicht gefunden | Sanelio"
+  description="Die angeforderte Seite wurde nicht gefunden."
+  noindex={true}
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Fehler 404"
+      title="Seite nicht gefunden"
+      description="Die angeforderte Adresse existiert nicht oder wurde geändert."
+    />
+    <div class="content-width">
+      <a class="button" href="/">Zur Startseite</a>
+    </div>
+  </div>
+</BaseLayout>

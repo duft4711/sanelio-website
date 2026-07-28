@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import ContentPageLayout from "../../layouts/ContentPageLayout.astro";
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects")).filter(
+    (project) => !project.data.draft,
+  );
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<ContentPageLayout
+  frontmatter={{
+    title: project.data.title,
+    description: project.data.description,
+    eyebrow: "Fallstudie",
+    reviewRequired: project.data.reviewRequired,
+  }}
+>
+  <Content />
+</ContentPageLayout>

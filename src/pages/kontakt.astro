@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Notice from "../components/Notice.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Kontakt | Sanelio"
+  description="Vorbereitete Kontaktmöglichkeit für Sanelio."
+  noindex={true}
+>
+  <div class="page-shell">
+    <SectionIntro
+      eyebrow="Kontakt"
+      title="Im Gespräch bleiben"
+      description="Eine direkte Kontaktmöglichkeit wird vor der Veröffentlichung abschließend geprüft."
+    />
+
+    <Notice title="Nicht veröffentlichungsreifer Platzhalter" tone="warning">
+      Die E-Mail-Adresse ist noch nicht als erreichbar verifiziert. Der Link
+      darf erst nach Einrichtung und Freigabe veröffentlicht werden.
+    </Notice>
+
+    <div class="prose content-width">
+      <p>
+        Vorbereiteter E-Mail-Link:
+        <a href={`mailto:${site.emailPlaceholder}`}>{site.emailPlaceholder}</a>
+      </p>
+      <p>
+        Ein Kontaktformular, Tracking oder externe Dienste werden nicht
+        eingesetzt.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
