@@ -106,12 +106,15 @@ werden.
 Vor der ersten Veröffentlichung müssen zusätzlich:
 
 1. die fehlenden rechtlichen und persönlichen Angaben freigegeben sein,
-2. `kontakt@sanelio.de` als erreichbare Adresse verifiziert sein,
+2. die veröffentlichte Kontaktadresse erreichbar und geprüft sein,
 3. GitHub Pages mit der Quelle „GitHub Actions“ aktiviert sein,
 4. `sanelio.de` in den Pages-Einstellungen als Custom Domain hinterlegt und
    verifiziert sein,
 5. die erforderlichen DNS-Einträge kontrolliert auf GitHub Pages umgestellt
    worden sein.
+
+Bis zur späteren Umstellung auf `kontakt@sanelio.de` wird
+`info@primemanagers.de` als Kontaktadresse verwendet.
 
 Bis diese Voraussetzungen erfüllt sind, bleibt die bestehende DNS- und
 Hostingkonfiguration unverändert. Es gibt bewusst keinen öffentlichen

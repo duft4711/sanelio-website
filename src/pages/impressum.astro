@@ -1,35 +1,47 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Notice from "../components/Notice.astro";
 import SectionIntro from "../components/SectionIntro.astro";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Impressum – Entwurf | Sanelio"
-  description="Nicht veröffentlichungsreifer Platzhalter für das Impressum."
-  noindex={true}
+  title="Impressum | Sanelio"
+  description="Anbieterkennzeichnung und rechtliche Angaben für die Sanelio-Website."
 >
   <div class="page-shell">
     <SectionIntro
-      eyebrow="Rechtlicher Entwurf"
+      eyebrow="Rechtliche Angaben"
       title="Impressum"
-      description="Diese Seite ist ausdrücklich kein vollständiges oder geprüftes Impressum."
+      description="Anbieterkennzeichnung gemäß § 5 DDG"
     />
 
-    <Notice title="Nicht veröffentlichungsreif" tone="warning">
-      Die gesetzlich erforderlichen Angaben fehlen. Betreiber, Anschrift,
-      Kontaktangaben und gegebenenfalls weitere Pflichtangaben müssen von
-      Norbert bereitgestellt und rechtlich geprüft werden.
-    </Notice>
+    <article class="prose content-width">
+      <h2>Diensteanbieter und rechtlicher Betreiber</h2>
+      <p>
+        Norbert Böttcher / PrimeManagers<br />
+        Detmoldstraße 6<br />
+        30171 Hannover<br />
+        Deutschland
+      </p>
 
-    <div class="prose content-width">
-      <h2>Erforderliche Freigaben</h2>
-      <ul>
-        <li>verantwortlicher Betreiber und vollständige Anschrift</li>
-        <li>verifizierte Kontaktangaben</li>
-        <li>gegebenenfalls berufs- oder unternehmensbezogene Pflichtangaben</li>
-        <li>rechtliche Prüfung des endgültigen Wortlauts</li>
-      </ul>
-    </div>
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+
+      <h2>Umsatzsteuer-Identifikationsnummer</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
+        DE 287255126
+      </p>
+
+      <h2>Verantwortlich für journalistisch-redaktionelle Inhalte</h2>
+      <p>
+        Verantwortlich gemäß § 18 Abs. 2 MStV:<br />
+        Norbert Böttcher<br />
+        Detmoldstraße 6<br />
+        30171 Hannover
+      </p>
+    </article>
   </div>
 </BaseLayout>

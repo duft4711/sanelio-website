@@ -2,41 +2,117 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Notice from "../components/Notice.astro";
 import SectionIntro from "../components/SectionIntro.astro";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Datenschutz – Entwurf | Sanelio"
-  description="Nicht veröffentlichungsreifer Platzhalter für Datenschutzinformationen."
-  noindex={true}
+  title="Datenschutz | Sanelio"
+  description="Informationen zur Verarbeitung personenbezogener Daten auf der Sanelio-Website."
 >
   <div class="page-shell">
     <SectionIntro
-      eyebrow="Rechtlicher Entwurf"
-      title="Datenschutz"
-      description="Diese Seite dokumentiert nur den aktuellen technischen Plan und ersetzt keine geprüfte Datenschutzerklärung."
+      eyebrow="Rechtliche Angaben"
+      title="Datenschutzerklärung"
+      description="Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website und bei einer Kontaktaufnahme."
     />
 
-    <Notice title="Nicht veröffentlichungsreif" tone="warning">
-      Verantwortlicher, Hosting, Server-Protokolle und endgültige
-      Kontaktmöglichkeiten stehen noch nicht fest beziehungsweise sind noch
-      nicht rechtlich geprüft.
+    <Notice title="Offener Prüfpunkt vor dem Go-live" tone="warning">
+      Die Website ist noch nicht produktiv veröffentlicht. Der künftige
+      Hosting-Anbieter, die dabei konkret anfallenden Server-Protokolldaten und
+      deren Speicherdauer sind noch nicht abschließend festgelegt. Dieser
+      Abschnitt muss vor der Veröffentlichung anhand der tatsächlichen
+      Hosting-Konfiguration ergänzt und geprüft werden.
     </Notice>
 
     <article class="prose content-width">
-      <h2>Aktuell vorgesehener technischer Umfang</h2>
+      <h2>1. Verantwortlicher</h2>
       <p>
-        Die Website wird statisch entwickelt. Analytics, Tracking, Cookies,
-        externe Schriftarten, eingebettete Videos, Karten, Social-Media-Widgets
-        und Kontaktformulare sind nicht vorgesehen.
+        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+      </p>
+      <p>
+        Norbert Böttcher / PrimeManagers<br />
+        Detmoldstraße 6<br />
+        30171 Hannover<br />
+        Deutschland
+      </p>
+      <p>
+        E-Mail: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
       </p>
 
-      <h2>Vor Veröffentlichung zu klären</h2>
+      <h2>2. Bereitstellung der Website</h2>
+      <p>
+        Die Website wird als statische Website bereitgestellt. Beim Aufruf einer
+        Website übermittelt Ihr Browser technisch notwendige Verbindungsdaten an
+        den Webserver. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit
+        des Zugriffs, aufgerufene Adresse, übertragene Datenmenge, Referrer-URL,
+        Browsertyp und Betriebssystem gehören.
+      </p>
+      <p>
+        Welche dieser Daten der künftige Hosting-Anbieter tatsächlich
+        protokolliert, zu welchen Zwecken er sie verarbeitet und wie lange er
+        sie speichert, kann erst nach der verbindlichen Festlegung und Prüfung
+        des Hostings angegeben werden. Eine darüber hinausgehende Behauptung
+        wird zum gegenwärtigen Stand nicht getroffen.
+      </p>
+
+      <h2>3. Cookies, Analyse und externe Inhalte</h2>
+      <p>
+        Nach dem derzeitigen technischen Stand setzt die Website selbst keine
+        Cookies und verwendet keine Analyse- oder Tracking-Dienste. Sie bindet
+        keine Karten, Videos, Social-Media-Widgets, externen Schriftdateien oder
+        sonstigen Inhalte von Drittanbietern ein. Die verwendeten Schriftarten
+        werden aus auf dem Endgerät vorhandenen Systemschriften ausgewählt.
+      </p>
+
+      <h2>4. Kontaktaufnahme per E-Mail</h2>
+      <p>
+        Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen
+        übermittelten Angaben verarbeitet, insbesondere Ihre E-Mail-Adresse, der
+        Inhalt Ihrer Nachricht und gegebenenfalls weitere von Ihnen mitgeteilte
+        Daten. Die Verarbeitung erfolgt, um Ihre Anfrage zu bearbeiten und zu
+        beantworten. Ein Kontaktformular besteht nicht.
+      </p>
+      <p>
+        Soweit Ihre Anfrage auf den Abschluss oder die Durchführung eines
+        Vertrags gerichtet ist, erfolgt die Verarbeitung auf Grundlage von Art.
+        6 Abs. 1 Buchst. b DSGVO. In anderen Fällen beruht sie auf dem
+        berechtigten Interesse an der sachgerechten Bearbeitung eingehender
+        Anfragen gemäß Art. 6 Abs. 1 Buchst. f DSGVO.
+      </p>
+      <p>
+        Die Angaben werden gelöscht, sobald sie für die Bearbeitung nicht mehr
+        erforderlich sind und keine gesetzlichen Aufbewahrungspflichten oder
+        sonstigen vorrangigen Gründe für eine weitere Speicherung bestehen. Bei
+        der Übermittlung und Speicherung von E-Mails können die beteiligten
+        E-Mail-Dienstleister als technische Empfänger eingebunden sein. Der
+        konkret eingesetzte E-Mail-Dienstleister und die mit ihm vereinbarten
+        Datenschutzbedingungen sind vor dem Go-live noch abschließend zu prüfen.
+      </p>
+
+      <h2>5. Ihre Rechte</h2>
+      <p>
+        Soweit die gesetzlichen Voraussetzungen vorliegen, haben Sie
+        insbesondere folgende Rechte:
+      </p>
       <ul>
-        <li>verantwortliche Stelle und Kontaktangaben</li>
-        <li>Hosting-Anbieter und technisch anfallende Protokolldaten</li>
-        <li>Aufbewahrung, Rechtsgrundlagen und Betroffenenrechte</li>
-        <li>rechtliche Prüfung des vollständigen Textes</li>
+        <li>Auskunft über die zu Ihrer Person verarbeiteten Daten,</li>
+        <li>Berichtigung unrichtiger oder unvollständiger Daten,</li>
+        <li>Löschung oder Einschränkung der Verarbeitung,</li>
+        <li>Datenübertragbarkeit sowie</li>
+        <li>
+          Widerspruch gegen eine Verarbeitung, die auf Art. 6 Abs. 1 Buchst. f
+          DSGVO beruht.
+        </li>
       </ul>
+      <p>
+        Außerdem haben Sie das Recht, sich bei einer
+        Datenschutz-Aufsichtsbehörde zu beschweren. Für den Verantwortlichen ist
+        insbesondere die Landesbeauftragte für den Datenschutz Niedersachsen
+        zuständig.
+      </p>
+
+      <h2>6. Stand dieser Datenschutzerklärung</h2>
+      <p>29. Juli 2026</p>
     </article>
   </div>
 </BaseLayout>

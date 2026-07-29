@@ -3,5 +3,5 @@ export const site = {
   title: "Sanelio – Technologie verstehen",
   description:
     "Sanelio macht Technologie verständlich und zeigt praktische Anwendungen rund um KI, Automatisierung und Prime.",
-  emailPlaceholder: "kontakt@sanelio.de",
+  contactEmail: "info@primemanagers.de",
 } as const;
