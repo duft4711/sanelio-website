@@ -22,26 +22,28 @@ const { frontmatter } = Astro.props;
   description={frontmatter.description}
   noindex={frontmatter.reviewRequired}
 >
-  <div class="page-shell">
-    <SectionIntro
-      eyebrow={frontmatter.eyebrow}
-      title={frontmatter.title}
-      description={frontmatter.description}
-      wide={true}
-    />
+  <div class="article-page">
+    <div class="article-layout">
+      <SectionIntro
+        eyebrow={frontmatter.eyebrow}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        wide={true}
+      />
 
-    {
-      frontmatter.reviewRequired && (
-        <Notice title="Inhaltliche Freigabe erforderlich">
-          Diese Seite ist ein zurückhaltender Entwurf. Aussagen zu Prime,
-          Sanelio oder beteiligten Personen werden vor einer Veröffentlichung
-          fachlich und persönlich geprüft.
-        </Notice>
-      )
-    }
+      {
+        frontmatter.reviewRequired && (
+          <Notice title="Inhaltliche Freigabe erforderlich">
+            Diese Seite ist ein zurückhaltender Entwurf. Aussagen zu Prime,
+            Sanelio oder beteiligten Personen werden vor einer Veröffentlichung
+            fachlich und persönlich geprüft.
+          </Notice>
+        )
+      }
 
-    <article class="prose content-width">
-      <slot />
-    </article>
+      <article class="prose content-width">
+        <slot />
+      </article>
+    </div>
   </div>
 </BaseLayout>
