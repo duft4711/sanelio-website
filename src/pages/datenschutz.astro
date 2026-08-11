@@ -1,42 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Notice from "../components/Notice.astro";
 import SectionIntro from "../components/SectionIntro.astro";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Datenschutz – Entwurf | Sanelio"
-  description="Nicht veröffentlichungsreifer Platzhalter für Datenschutzinformationen."
-  noindex={true}
+  title="Datenschutz | Sanelio"
+  description="Informationen zur Verarbeitung personenbezogener Daten auf der Sanelio-Website."
 >
   <div class="page-shell">
     <SectionIntro
-      eyebrow="Rechtlicher Entwurf"
-      title="Datenschutz"
-      description="Diese Seite dokumentiert nur den aktuellen technischen Plan und ersetzt keine geprüfte Datenschutzerklärung."
+      eyebrow="Rechtliche Angaben"
+      title="Datenschutzerklärung"
+      description="Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website und bei einer Kontaktaufnahme."
     />
 
-    <Notice title="Nicht veröffentlichungsreif" tone="warning">
-      Verantwortlicher, Hosting, Server-Protokolle und endgültige
-      Kontaktmöglichkeiten stehen noch nicht fest beziehungsweise sind noch
-      nicht rechtlich geprüft.
-    </Notice>
-
     <article class="prose content-width">
-      <h2>Aktuell vorgesehener technischer Umfang</h2>
+      <h2>1. Verantwortlicher</h2>
       <p>
-        Die Website wird statisch entwickelt. Analytics, Tracking, Cookies,
-        externe Schriftarten, eingebettete Videos, Karten, Social-Media-Widgets
-        und Kontaktformulare sind nicht vorgesehen.
+        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+      </p>
+      <p>
+        Norbert Böttcher / PrimeManagers<br />
+        Detmoldstraße 6<br />
+        30171 Hannover<br />
+        Deutschland
+      </p>
+      <p>
+        E-Mail: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
       </p>
 
-      <h2>Vor Veröffentlichung zu klären</h2>
+      <h2>2. Bereitstellung der Website</h2>
+      <p>
+        Diese Website wird als statische Website über GitHub Pages
+        bereitgestellt. GitHub Pages ist ein Dienst von GitHub zur technischen
+        Bereitstellung statischer Inhalte. Beim Aufruf verarbeitet GitHub
+        insbesondere die IP-Adresse sowie technisch erforderliche Nutzungs- und
+        Verbindungsdaten. Dazu können Datum und Uhrzeit des Zugriffs, die
+        angeforderte Ressource sowie Informationen zum verwendeten Gerät,
+        Betriebssystem und Browser gehören.
+      </p>
+      <p>
+        GitHub dokumentiert, dass die IP-Adresse von Besuchern einer
+        GitHub-Pages-Website unabhängig von einer Anmeldung zu
+        Sicherheitszwecken protokolliert und gespeichert wird. Eine konkrete
+        Speicherdauer nennt die hierzu herangezogene GitHub-Dokumentation nicht.
+        Die Verarbeitung ist für die sichere und zuverlässige Bereitstellung der
+        Website erforderlich und beruht auf dem berechtigten Interesse an ihrem
+        sicheren Betrieb gemäß Art. 6 Abs. 1 Buchst. f DSGVO.
+      </p>
+      <p>
+        Nach der Datenschutzerklärung von GitHub können personenbezogene Daten
+        unter anderem in den Vereinigten Staaten und weiteren Ländern
+        verarbeitet werden. Weitere Informationen zur Datenverarbeitung und zu
+        internationalen Datenübermittlungen enthält die{" "}
+        <a
+          href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+          >Datenschutzerklärung von GitHub</a
+        >.
+      </p>
+
+      <h2>3. Cookies, Analyse und externe Inhalte</h2>
+      <p>
+        Nach dem derzeitigen technischen Stand setzt die Website selbst keine
+        Cookies und verwendet keine Analyse- oder Tracking-Dienste. Sie bindet
+        keine Karten, Videos, Social-Media-Widgets, externen Schriftdateien oder
+        sonstigen Inhalte von Drittanbietern ein. Die verwendeten Schriftarten
+        werden aus auf dem Endgerät vorhandenen Systemschriften ausgewählt.
+      </p>
+
+      <h2>4. Kontaktaufnahme per E-Mail</h2>
+      <p>
+        Sie können uns unter{" "}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> per E-Mail
+        kontaktieren. Die E-Mail-Kommunikation wird technisch über Dienste der IONOS
+        SE abgewickelt. Dabei werden insbesondere Absenderadresse, Empfängeradresse,
+        Zeitpunkt, Betreff, Nachrichteninhalt und gegebenenfalls übermittelte Anhänge
+        verarbeitet. Ein Kontaktformular besteht nicht.
+      </p>
+      <p>
+        Zweck der Verarbeitung ist die Bearbeitung und Beantwortung Ihrer
+        Kontaktaufnahme sowie gegebenenfalls die Durchführung vorvertraglicher
+        oder vertraglicher Kommunikation. Soweit Ihre Anfrage auf den Abschluss
+        oder die Durchführung eines Vertrags gerichtet ist, erfolgt die
+        Verarbeitung auf Grundlage von Art. 6 Abs. 1 Buchst. b DSGVO. In anderen
+        Fällen beruht sie auf dem berechtigten Interesse an der sachgerechten
+        Bearbeitung eingehender Anfragen gemäß Art. 6 Abs. 1 Buchst. f DSGVO.
+      </p>
+      <p>
+        Die Angaben werden gelöscht, sobald sie für die Bearbeitung nicht mehr
+        erforderlich sind und keine gesetzlichen Aufbewahrungspflichten oder
+        sonstigen vorrangigen Gründe für eine weitere Speicherung bestehen.
+        Weitere Informationen zur Verarbeitung durch IONOS enthält die{" "}
+        <a href="https://www.ionos.de/datenschutzerklaerung"
+          >Datenschutzinformation von IONOS</a
+        >.
+      </p>
+
+      <h2>5. Ihre Rechte</h2>
+      <p>
+        Soweit die gesetzlichen Voraussetzungen vorliegen, haben Sie
+        insbesondere folgende Rechte:
+      </p>
       <ul>
-        <li>verantwortliche Stelle und Kontaktangaben</li>
-        <li>Hosting-Anbieter und technisch anfallende Protokolldaten</li>
-        <li>Aufbewahrung, Rechtsgrundlagen und Betroffenenrechte</li>
-        <li>rechtliche Prüfung des vollständigen Textes</li>
+        <li>Auskunft über die zu Ihrer Person verarbeiteten Daten,</li>
+        <li>Berichtigung unrichtiger oder unvollständiger Daten,</li>
+        <li>Löschung oder Einschränkung der Verarbeitung,</li>
+        <li>Datenübertragbarkeit sowie</li>
+        <li>
+          Widerspruch gegen eine Verarbeitung, die auf Art. 6 Abs. 1 Buchst. f
+          DSGVO beruht.
+        </li>
       </ul>
+      <p>
+        Außerdem haben Sie das Recht, sich bei einer
+        Datenschutz-Aufsichtsbehörde zu beschweren. Für den Verantwortlichen ist
+        insbesondere die Landesbeauftragte für den Datenschutz Niedersachsen
+        zuständig.
+      </p>
+
+      <h2>6. Stand dieser Datenschutzerklärung</h2>
+      <p>29. Juli 2026</p>
     </article>
   </div>
 </BaseLayout>

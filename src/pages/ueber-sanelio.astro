@@ -1,21 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Notice from "../components/Notice.astro";
 import SectionIntro from "../components/SectionIntro.astro";
 ---
 
 <BaseLayout
   title="Über Sanelio"
-  description="Sanelio ist eine eigenständige Technologiemarke für verständliche Einordnung und praktische Anwendungen."
+  description="Sanelio ist ein Projekt für verständliche Einordnung und praktische Anwendungen von Technologie."
 >
   <div class="page-shell">
     <SectionIntro
       eyebrow="Über Sanelio"
       title="Technologie verständlich machen"
-      description="Sanelio ist als eigenständige Technologiemarke angelegt. Die Plattform verbindet verständliche Erklärungen mit nachvollziehbaren praktischen Anwendungen."
+      description="Sanelio verbindet verständliche Erklärungen mit nachvollziehbaren praktischen Anwendungen."
     />
 
     <article class="prose content-width">
+      <p>
+        Sanelio ist ein Projekt von Norbert Böttcher / PrimeManagers. Norbert
+        Böttcher ist Initiator von Sanelio.
+      </p>
+
       <h2>Wofür Sanelio steht</h2>
       <p>
         Inhalte sollen Orientierung geben, ohne Komplexität zu verschweigen.
@@ -28,17 +32,6 @@ import SectionIntro from "../components/SectionIntro.astro";
         Prime ist ein zentrales Projekt innerhalb von Sanelio. Es ist jedoch
         nicht mit der Marke Sanelio gleichzusetzen.
       </p>
-
-      <h2>Initiator</h2>
-      <p>
-        Norbert Böttcher ist Initiator von Sanelio. Weitere persönliche oder
-        berufliche Angaben werden erst nach ausdrücklicher Freigabe ergänzt.
-      </p>
     </article>
-
-    <Notice title="Persönliche Freigabe erforderlich">
-      Die Formulierung zur Person und jede spätere Ergänzung müssen vor der
-      Veröffentlichung von Norbert geprüft werden.
-    </Notice>
   </div>
 </BaseLayout>
