@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionIntro from "../components/SectionIntro.astro";
+import { withBase } from "../data/navigation";
 ---
 
 <BaseLayout
@@ -15,7 +16,7 @@ import SectionIntro from "../components/SectionIntro.astro";
       description="Die angeforderte Adresse existiert nicht oder wurde geändert."
     />
     <div class="content-width">
-      <a class="button" href="/">Zur Startseite</a>
+      <a class="button" href={withBase("/")}>Zur Startseite</a>
     </div>
   </div>
 </BaseLayout>

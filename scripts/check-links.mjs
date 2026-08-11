@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 const outputDirectory = resolve("dist");
+const basePath = "/sanelio-website";
 
 if (!existsSync(outputDirectory)) {
   console.error("dist/ fehlt. Bitte zuerst npm run build ausführen.");
@@ -21,19 +22,28 @@ function collectHtmlFiles(directory) {
 
 function targetFor(pathname) {
   const decodedPath = decodeURIComponent(pathname);
+  let outputPath;
 
-  if (decodedPath === "/") {
+  if (decodedPath === basePath || decodedPath === `${basePath}/`) {
+    outputPath = "/";
+  } else if (decodedPath.startsWith(`${basePath}/`)) {
+    outputPath = decodedPath.slice(basePath.length);
+  } else {
+    return undefined;
+  }
+
+  if (outputPath === "/") {
     return join(outputDirectory, "index.html");
   }
 
-  if (decodedPath.endsWith("/")) {
-    return join(outputDirectory, decodedPath, "index.html");
+  if (outputPath.endsWith("/")) {
+    return join(outputDirectory, outputPath, "index.html");
   }
 
-  const directTarget = join(outputDirectory, decodedPath);
+  const directTarget = join(outputDirectory, outputPath);
   return existsSync(directTarget)
     ? directTarget
-    : join(outputDirectory, decodedPath, "index.html");
+    : join(outputDirectory, outputPath, "index.html");
 }
 
 const failures = [];
@@ -41,7 +51,9 @@ let checkedLinks = 0;
 
 for (const htmlFile of collectHtmlFiles(outputDirectory)) {
   const html = readFileSync(htmlFile, "utf8");
-  const links = [...html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+  const links = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(
+    (match) => match[1],
+  );
 
   for (const href of links) {
     if (
@@ -63,7 +75,15 @@ for (const htmlFile of collectHtmlFiles(outputDirectory)) {
     }
 
     checkedLinks += 1;
-    if (!existsSync(targetFor(pathname))) {
+    const target = targetFor(pathname);
+    if (!target) {
+      failures.push(
+        `${htmlFile}: Pfad liegt außerhalb der GitHub-Pages-Basis: ${href}`,
+      );
+      continue;
+    }
+
+    if (!existsSync(target)) {
       failures.push(`${htmlFile}: Ziel fehlt: ${href}`);
     }
   }
