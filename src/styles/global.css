@@ -452,6 +452,31 @@ p {
   margin-top: var(--space-2);
 }
 
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-collapse: collapse;
+  border-radius: var(--radius-small);
+  background: var(--color-surface);
+}
+
+.prose th,
+.prose td {
+  min-width: 11rem;
+  padding: var(--space-3);
+  border: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  background: var(--color-surface-muted);
+  color: var(--color-ink);
+  font-weight: 750;
+}
+
 .site-footer {
   padding-block: var(--space-6);
   border-top: 1px solid var(--color-line);
