@@ -3,12 +3,15 @@ interface Props {
   eyebrow?: string;
   title: string;
   description: string;
+  wide?: boolean;
 }
 
-const { eyebrow, title, description } = Astro.props;
+const { eyebrow, title, description, wide = false } = Astro.props;
 ---
 
-<header class="section-intro content-width">
+<header
+  class:list={["section-intro", wide ? "section-intro-wide" : "content-width"]}
+>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h1>{title}</h1>
   <p class="lead">{description}</p>

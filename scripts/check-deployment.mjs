@@ -13,9 +13,6 @@ const excludedSitemapUrls = [
   `${productionBaseUrl}/datenschutz/`,
   `${productionBaseUrl}/impressum/`,
   `${productionBaseUrl}/kontakt/`,
-  `${productionBaseUrl}/prime/entstehung/`,
-  `${productionBaseUrl}/prime/prinzipien-und-arbeitsweise/`,
-  `${productionBaseUrl}/prime/weiterentwicklung/`,
 ];
 const failures = [];
 

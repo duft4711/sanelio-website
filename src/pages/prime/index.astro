@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
-import Notice from "../../components/Notice.astro";
 import SectionIntro from "../../components/SectionIntro.astro";
 import { withBase } from "../../data/navigation";
 ---
@@ -14,29 +13,23 @@ import { withBase } from "../../data/navigation";
     <SectionIntro
       eyebrow="Projekt"
       title="Prime"
-      description="Prime ist ein zentrales Projekt innerhalb von Sanelio. Die öffentliche Dokumentation soll seine Entstehung, Arbeitsweise und Weiterentwicklung nachvollziehbar machen."
+      description="Prime ist ein persönlicher digitaler Mitarbeiter. Die öffentliche Dokumentation erklärt seinen Zweck, seine Arbeitsprinzipien und seine Weiterentwicklung."
     />
-
-    <Notice title="Öffentliche Dokumentation">
-      Die Darstellung enthält bewusst keine internen Systeme, Verwaltungsdaten
-      oder vertraulichen Informationen. Weiterführende Projektaussagen werden
-      jeweils fachlich und persönlich geprüft.
-    </Notice>
 
     <div class="card-grid">
       <Card
         title="Entstehung"
-        description="Eine vorbereitete, noch freizugebende Darstellung der Ausgangslage und Entwicklung."
+        description="Warum Prime als langfristig angelegtes Assistenzsystem entsteht und wie es eingeordnet wird."
         href={withBase("/prime/entstehung/")}
       />
       <Card
         title="Prinzipien und Arbeitsweise"
-        description="Wie nachvollziehbare und verantwortete Zusammenarbeit beschrieben werden kann."
+        description="Welche Grundsätze die Zusammenarbeit mit Prime leiten."
         href={withBase("/prime/prinzipien-und-arbeitsweise/")}
       />
       <Card
         title="Weiterentwicklung"
-        description="Ein Rahmen, um praktische Erkenntnisse und begründete Änderungen zu dokumentieren."
+        description="Wie praktische Erfahrungen zu begründeten und verhältnismäßigen Verbesserungen führen."
         href={withBase("/prime/weiterentwicklung/")}
       />
       <Card
