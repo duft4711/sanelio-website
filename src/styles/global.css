@@ -370,6 +370,40 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.practice-grid {
+  display: grid;
+  width: min(100%, var(--page-width));
+  margin: var(--space-6) auto 0;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.practice-card {
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.practice-card h3 {
+  margin-top: var(--space-4);
+  color: var(--color-brand);
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.practice-card p {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+}
+
+.projects-case-studies {
+  padding-bottom: 0;
+}
+
 .card {
   display: flex;
   min-height: 17rem;
@@ -595,6 +629,10 @@ p {
   }
 
   .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-grid {
     grid-template-columns: 1fr;
   }
 
