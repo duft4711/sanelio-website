@@ -1,7 +1,13 @@
+export const basePath = import.meta.env.BASE_URL;
+
+export function withBase(path: string) {
+  return path === "/" ? basePath : `${basePath}${path.slice(1)}`;
+}
+
 export const navigation = [
-  { href: "/", label: "Start" },
-  { href: "/technologie-verstehen/", label: "Technologie verstehen" },
-  { href: "/prime/", label: "Prime" },
-  { href: "/projekte/", label: "Projekte" },
-  { href: "/ueber-sanelio/", label: "Über Sanelio" },
+  { href: withBase("/"), label: "Start" },
+  { href: withBase("/technologie-verstehen/"), label: "Technologie verstehen" },
+  { href: withBase("/prime/"), label: "Prime" },
+  { href: withBase("/projekte/"), label: "Projekte" },
+  { href: withBase("/ueber-sanelio/"), label: "Über Sanelio" },
 ] as const;

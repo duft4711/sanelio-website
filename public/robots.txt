@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sanelio.de/sitemap-index.xml
+Sitemap: https://duft4711.github.io/sanelio-website/sitemap-index.xml

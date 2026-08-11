@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const outputDirectory = resolve("dist");
+const productionBaseUrl = "https://duft4711.github.io/sanelio-website";
 const requiredFiles = [
   "index.html",
   "404.html",
@@ -9,12 +10,12 @@ const requiredFiles = [
   "sitemap-index.xml",
 ];
 const excludedSitemapUrls = [
-  "https://sanelio.de/datenschutz/",
-  "https://sanelio.de/impressum/",
-  "https://sanelio.de/kontakt/",
-  "https://sanelio.de/prime/entstehung/",
-  "https://sanelio.de/prime/prinzipien-und-arbeitsweise/",
-  "https://sanelio.de/prime/weiterentwicklung/",
+  `${productionBaseUrl}/datenschutz/`,
+  `${productionBaseUrl}/impressum/`,
+  `${productionBaseUrl}/kontakt/`,
+  `${productionBaseUrl}/prime/entstehung/`,
+  `${productionBaseUrl}/prime/prinzipien-und-arbeitsweise/`,
+  `${productionBaseUrl}/prime/weiterentwicklung/`,
 ];
 const failures = [];
 
@@ -36,25 +37,28 @@ if (failures.length === 0) {
   );
 
   if (
-    !indexHtml.includes('<link rel="canonical" href="https://sanelio.de/">')
+    !indexHtml.includes(`<link rel="canonical" href="${productionBaseUrl}/">`)
   ) {
     failures.push("Die Startseite besitzt nicht die erwartete Canonical URL.");
   }
 
-  if (indexHtml.includes("github.io")) {
-    failures.push("Die Produktionsausgabe enthält unerwartet github.io.");
+  if (!indexHtml.includes('href="/sanelio-website/_astro/')) {
+    failures.push(
+      "Die Startseite referenziert keine Assets mit der GitHub-Pages-Basis.",
+    );
   }
 
-  if (!robots.includes("Sitemap: https://sanelio.de/sitemap-index.xml")) {
+  if (!robots.includes(`Sitemap: ${productionBaseUrl}/sitemap-index.xml`)) {
     failures.push("robots.txt verweist nicht auf die produktive Sitemap.");
   }
 
-  const sitemapLocations = [
-    ...sitemapIndex.matchAll(/<loc>https:\/\/sanelio\.de\/([^<]+)<\/loc>/g),
-  ].map((match) => match[1]);
+  const sitemapLocations = [...sitemapIndex.matchAll(/<loc>([^<]+)<\/loc>/g)]
+    .map((match) => match[1])
+    .filter((location) => location.startsWith(`${productionBaseUrl}/`))
+    .map((location) => location.slice(productionBaseUrl.length + 1));
 
   if (sitemapLocations.length === 0) {
-    failures.push("Der Sitemap-Index enthält keine Sanelio-Sitemap.");
+    failures.push("Der Sitemap-Index enthält keine GitHub-Pages-Sitemap.");
   }
 
   for (const sitemap of sitemapLocations) {

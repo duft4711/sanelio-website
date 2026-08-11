@@ -2,19 +2,20 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://sanelio.de",
+  site: "https://duft4711.github.io",
+  base: "/sanelio-website",
   output: "static",
   trailingSlash: "always",
   integrations: [
     sitemap({
       filter: (page) =>
         ![
-          "https://sanelio.de/datenschutz/",
-          "https://sanelio.de/impressum/",
-          "https://sanelio.de/kontakt/",
-          "https://sanelio.de/prime/entstehung/",
-          "https://sanelio.de/prime/prinzipien-und-arbeitsweise/",
-          "https://sanelio.de/prime/weiterentwicklung/",
+          "https://duft4711.github.io/sanelio-website/datenschutz/",
+          "https://duft4711.github.io/sanelio-website/impressum/",
+          "https://duft4711.github.io/sanelio-website/kontakt/",
+          "https://duft4711.github.io/sanelio-website/prime/entstehung/",
+          "https://duft4711.github.io/sanelio-website/prime/prinzipien-und-arbeitsweise/",
+          "https://duft4711.github.io/sanelio-website/prime/weiterentwicklung/",
         ].includes(page),
     }),
   ],

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import Notice from "../../components/Notice.astro";
 import SectionIntro from "../../components/SectionIntro.astro";
+import { withBase } from "../../data/navigation";
 ---
 
 <BaseLayout
@@ -26,27 +27,27 @@ import SectionIntro from "../../components/SectionIntro.astro";
       <Card
         title="Entstehung"
         description="Eine vorbereitete, noch freizugebende Darstellung der Ausgangslage und Entwicklung."
-        href="/prime/entstehung/"
+        href={withBase("/prime/entstehung/")}
       />
       <Card
         title="Prinzipien und Arbeitsweise"
         description="Wie nachvollziehbare und verantwortete Zusammenarbeit beschrieben werden kann."
-        href="/prime/prinzipien-und-arbeitsweise/"
+        href={withBase("/prime/prinzipien-und-arbeitsweise/")}
       />
       <Card
         title="Weiterentwicklung"
         description="Ein Rahmen, um praktische Erkenntnisse und begründete Änderungen zu dokumentieren."
-        href="/prime/weiterentwicklung/"
+        href={withBase("/prime/weiterentwicklung/")}
       />
       <Card
         title="KI-Verfügbarkeit und Resilienz"
         description="Warum für Prime ergänzend ein zweiter, lokal betriebener KI-Arbeitsweg geprüft wird."
-        href="/prime/ki-verfuegbarkeit-und-resilienz/"
+        href={withBase("/prime/ki-verfuegbarkeit-und-resilienz/")}
       />
       <Card
         title="KI-Agenten in der Praxis"
         description="Warum klare Anforderungen bei der Umsetzung technischer Ideen entscheidend sind."
-        href="/prime/ki-agenten-klare-anforderungen/"
+        href={withBase("/prime/ki-agenten-klare-anforderungen/")}
       />
     </div>
   </div>

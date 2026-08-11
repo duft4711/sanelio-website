@@ -1,11 +1,12 @@
 ---
 import { site } from "../data/site";
+import { basePath, withBase } from "../data/navigation";
 ---
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
-      <a class="wordmark wordmark-footer" href="/">
+      <a class="wordmark wordmark-footer" href={basePath}>
         <span class="wordmark-mark" aria-hidden="true">S</span>
         <span>{site.name}</span>
       </a>
@@ -13,9 +14,9 @@ import { site } from "../data/site";
     </div>
 
     <nav aria-label="Fußnavigation">
-      <a href="/kontakt/">Kontakt</a>
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
+      <a href={withBase("/kontakt/")}>Kontakt</a>
+      <a href={withBase("/impressum/")}>Impressum</a>
+      <a href={withBase("/datenschutz/")}>Datenschutz</a>
     </nav>
   </div>
 </footer>

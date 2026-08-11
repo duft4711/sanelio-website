@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import SectionIntro from "../../components/SectionIntro.astro";
+import { withBase } from "../../data/navigation";
 ---
 
 <BaseLayout
@@ -19,17 +20,17 @@ import SectionIntro from "../../components/SectionIntro.astro";
       <Card
         title="Grundlagen"
         description="Begriffe, Modelle und Zusammenhänge als belastbare Basis."
-        href="/technologie-verstehen/grundlagen/"
+        href={withBase("/technologie-verstehen/grundlagen/")}
       />
       <Card
         title="KI und Automatisierung"
         description="Möglichkeiten, Grenzen und verantwortungsvolle Nutzung."
-        href="/technologie-verstehen/ki-und-automatisierung/"
+        href={withBase("/technologie-verstehen/ki-und-automatisierung/")}
       />
       <Card
         title="Praktische Einordnungen"
         description="Fragen, mit denen sich Nutzen, Aufwand und Risiko bewerten lassen."
-        href="/technologie-verstehen/praktische-einordnungen/"
+        href={withBase("/technologie-verstehen/praktische-einordnungen/")}
       />
     </div>
   </div>

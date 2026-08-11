@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionIntro from "../components/SectionIntro.astro";
 import { site } from "../data/site";
+import { withBase } from "../data/navigation";
 ---
 
 <BaseLayout
@@ -23,7 +24,7 @@ import { site } from "../data/site";
       <p>
         Ein Kontaktformular wird nicht eingesetzt. Informationen zur
         Verarbeitung Ihrer Angaben bei einer Kontaktaufnahme finden Sie in der
-        <a href="/datenschutz/">Datenschutzerklärung</a>.
+        <a href={withBase("/datenschutz/")}>Datenschutzerklärung</a>.
       </p>
     </div>
   </div>

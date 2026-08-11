@@ -1,10 +1,10 @@
 ---
-import { navigation } from "../data/navigation";
+import { basePath, navigation } from "../data/navigation";
 
 const currentPath = Astro.url.pathname;
 
 function isCurrent(href: string) {
-  return href === "/"
+  return href === basePath
     ? currentPath === href
     : currentPath === href || currentPath.startsWith(href);
 }
@@ -12,7 +12,7 @@ function isCurrent(href: string) {
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="wordmark" href="/" aria-label="Sanelio Startseite">
+    <a class="wordmark" href={basePath} aria-label="Sanelio Startseite">
       <span class="wordmark-mark" aria-hidden="true">S</span>
       <span>Sanelio</span>
     </a>
