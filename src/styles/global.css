@@ -39,6 +39,8 @@
   --shadow-soft: 0 1rem 2.5rem rgb(23 33 29 / 8%);
   --page-width: 75rem;
   --content-width: 48rem;
+  --article-header-width: 60rem;
+  --article-prose-width: 46rem;
 }
 
 *,
@@ -406,6 +408,19 @@ p {
   margin-bottom: var(--space-6);
 }
 
+.section-intro-wide {
+  max-width: var(--article-header-width);
+  margin-inline: auto;
+}
+
+.section-intro-wide h1 {
+  font-size: clamp(2.6rem, 2.05rem + 2.2vw, 4.25rem);
+}
+
+.section-intro-wide .lead {
+  max-width: 46rem;
+}
+
 .notice {
   display: grid;
   max-width: var(--content-width);
@@ -428,6 +443,10 @@ p {
 
 .prose > * + * {
   margin-top: var(--space-4);
+}
+
+.prose.content-width {
+  max-width: var(--article-prose-width);
 }
 
 .prose h2 {
