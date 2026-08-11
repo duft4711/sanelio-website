@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
-import Notice from "../../components/Notice.astro";
 import SectionIntro from "../../components/SectionIntro.astro";
+import { withBase } from "../../data/navigation";
 
 const projects = (await getCollection("projects")).filter(
   (project) => !project.data.draft,
@@ -18,27 +18,131 @@ const projects = (await getCollection("projects")).filter(
     <SectionIntro
       eyebrow="Praxis"
       title="Projekte"
-      description="Hier entsteht eine Sammlung nachvollziehbarer Praxisberichte. Veröffentlicht werden nur freigegebene Inhalte und überprüfbare Aussagen."
+      description="Anonymisierte Praxisfelder für komplexe Technologie-, Projekt- und Entscheidungsarbeit."
     />
 
+    <article class="prose content-width">
+      <p>
+        Diese Rubrik veröffentlicht keine Kunden- oder Projektlisten. Sie
+        bündelt anonymisierte Praxisfelder, in denen komplexe Aufgaben
+        strukturiert, nachvollziehbar und mit Blick auf ihren langfristigen
+        Nutzen bearbeitet werden können.
+      </p>
+      <p>
+        Die Beschreibungen trennen typische Ausgangslagen und allgemeine
+        Vorgehensweisen von konkreten Praxisbezügen. Sie enthalten keine Angaben
+        zu Auftraggebern, Personen, Systemen, Zahlen oder vertraulichen
+        Entscheidungen.
+      </p>
+    </article>
+
+    <div class="practice-grid" aria-label="Praxisfelder">
+      <article class="practice-card">
+        <h2>Komplexe Vorhaben strukturieren</h2>
+        <h3>Typische Ausgangslage</h3>
+        <p>
+          Ziele, Aufgaben, Abhängigkeiten und offene Fragen sind über mehrere
+          Arbeitsstränge verteilt und müssen in einen verständlichen Rahmen
+          gebracht werden.
+        </p>
+        <h3>Vorgehensweise</h3>
+        <p>
+          Das Vorhaben wird in überschaubare Bestandteile gegliedert.
+          Verantwortlichkeiten, Risiken, Entscheidungen und nächste Schritte
+          werden nachvollziehbar zusammengeführt.
+        </p>
+        <h3>Übertragbarer Nutzen</h3>
+        <p>
+          Beteiligte erhalten eine gemeinsame Arbeitsgrundlage und können
+          Prioritäten, Abhängigkeiten und Fortschritt besser beurteilen.
+        </p>
+      </article>
+
+      <article class="practice-card">
+        <h2>Entscheidungsgrundlagen transparent machen</h2>
+        <h3>Typische Ausgangslage</h3>
+        <p>
+          Es stehen mehrere Optionen im Raum, deren Nutzen, Aufwand, Risiken und
+          Voraussetzungen unterschiedlich bewertet werden.
+        </p>
+        <h3>Vorgehensweise</h3>
+        <p>
+          Informationen werden nach ihrer Belastbarkeit eingeordnet.
+          Alternativen werden anhand klarer Kriterien verglichen; Annahmen,
+          Unsicherheiten und Zielkonflikte bleiben sichtbar.
+        </p>
+        <h3>Übertragbarer Nutzen</h3>
+        <p>
+          Entscheidungen werden begründbarer, später überprüfbar und weniger
+          abhängig von einzelnen, nicht dokumentierten Einschätzungen.
+        </p>
+      </article>
+
+      <article class="practice-card">
+        <h2>Technologie und Prozesse einordnen</h2>
+        <h3>Typische Ausgangslage</h3>
+        <p>
+          Eine technische Möglichkeit verspricht Nutzen, wirft aber Fragen zu
+          Integration, Betrieb, Sicherheit, Aufwand und tatsächlicher Wirkung
+          auf.
+        </p>
+        <h3>Vorgehensweise</h3>
+        <p>
+          Der konkrete Bedarf steht vor der Lösung. Bestehende Möglichkeiten,
+          realistische Alternativen und notwendige Grenzen werden geprüft, bevor
+          eine Veränderung umgesetzt wird.
+        </p>
+        <h3>Übertragbarer Nutzen</h3>
+        <p>
+          Technische Entscheidungen bleiben auf den Zweck ausgerichtet und
+          vermeiden vermeidbare Komplexität oder unklare Folgekosten.
+        </p>
+      </article>
+
+      <article class="practice-card">
+        <h2>Wissen und Dokumentation nutzbar halten</h2>
+        <h3>Typische Ausgangslage</h3>
+        <p>
+          Relevante Erkenntnisse, Entscheidungen und Erfahrungen liegen verteilt
+          vor oder gehen nach Abschluss einer Aufgabe verloren.
+        </p>
+        <h3>Vorgehensweise</h3>
+        <p>
+          Informationen werden nach Zweck, Aussagequalität und Wiederverwendung
+          strukturiert. Wichtige Annahmen, Entscheidungen und offene Punkte
+          werden voneinander getrennt festgehalten.
+        </p>
+        <h3>Übertragbarer Nutzen</h3>
+        <p>
+          Spätere Aufgaben können auf nachvollziehbares Wissen aufbauen, anstatt
+          dieselben Fragen erneut von Grund auf zu klären.
+        </p>
+      </article>
+    </div>
+
     {
-      projects.length > 0 ? (
-        <div class="card-grid">
-          {projects.map((project) => (
-            <Card
-              title={project.data.title}
-              description={project.data.description}
-              href={`/projekte/${project.id}/`}
-              label="Fallstudie lesen"
-            />
-          ))}
-        </div>
-      ) : (
-        <Notice title="Struktur vorbereitet">
-          Die technische Struktur für Fallstudien ist vorhanden. Konkrete
-          Projekte werden erst nach inhaltlicher Prüfung und Freigabe
-          veröffentlicht.
-        </Notice>
+      projects.length > 0 && (
+        <section
+          class="section projects-case-studies"
+          aria-labelledby="case-studies-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Fallstudien</p>
+              <h2 id="case-studies-title">Geprüfte Praxisberichte</h2>
+            </div>
+          </div>
+          <div class="card-grid">
+            {projects.map((project) => (
+              <Card
+                title={project.data.title}
+                description={project.data.description}
+                href={withBase(`/projekte/${project.id}/`)}
+                label="Fallstudie lesen"
+              />
+            ))}
+          </div>
+        </section>
       )
     }
   </div>
